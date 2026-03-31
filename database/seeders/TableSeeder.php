@@ -15,7 +15,7 @@ class TableSeeder extends Seeder
     {
         for ($i = 1; $i <= 20; $i++) {
             Table::create([
-                'name' => 'Masa ' . $i,
+                'name' => 'umumiy zal ' . $i,
                 'capacity' => rand(2, 8),
                 'location' => rand(0, 1) ? 'Inside' : 'Terrace',
                 'status' => 'available',

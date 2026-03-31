@@ -51,7 +51,7 @@
                 <div>
                     <p class="text-amber-100 text-sm font-black uppercase tracking-widest mb-4">Siz Qadriyalisan 👋</p>
                     <h1 class="text-6xl font-black mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-                        Assaliomu Aleykum,<br>{{ Auth::user()->name }}!
+                        Assalomu Aleykum,<br>{{ Auth::user()->name }}!
                     </h1>
                     <p class="text-2xl text-amber-50">Grand Restoranning qiymatlı mehmonisiz</p>
                 </div>

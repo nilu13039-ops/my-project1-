@@ -10,7 +10,7 @@
     <div class="mb-10 text-center">
         <p class="text-amber-600 text-sm font-bold uppercase tracking-widest mb-3">Akkauntingizga Kirish</p>
         <h1 class="text-4xl font-black text-gray-900 mb-3" style="font-family: 'Playfair Display', serif;">
-            Assaliomu Aleykum 👋
+            Assalomu Aleykum 👋
         </h1>
         <p class="text-gray-600">Grand Restoranga qaytib kelgani uchun raxmat</p>
     </div>
