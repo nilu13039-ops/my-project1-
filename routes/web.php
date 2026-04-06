@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ReservationController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -13,6 +14,9 @@ Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::middleware('auth')->group(function () {
     Route::get('/reservation', [ReservationController::class, 'create'])->name('reservation.create');
     Route::post('/reservation', [ReservationController::class, 'store'])->name('reservation.store');
+
+    Route::get('/order', [OrderController::class, 'create'])->name('order.create');
+    Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 });
 
 Route::get('/dashboard', function () {

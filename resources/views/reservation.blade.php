@@ -62,17 +62,28 @@
                         <label class="block text-lg font-bold text-gray-900 mb-4">
                             👥 Mehmonlar Soni
                         </label>
-                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                            @for($i = 1; $i <= 8; $i++)
-                            <button type="button"
-                                    @click="guests = {{ $i }}; updateFilteredTables()"
-                                    :class="guests === {{ $i }} ? 'bg-amber-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-amber-100'"
-                                    class="p-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105">
-                                {{ $i }} kishi
-                            </button>
-                            @endfor
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
+                            <div class="sm:col-span-2">
+                                <input type="number"
+                                       id="guests_count"
+                                       name="guests_count"
+                                       x-model.number="guests"
+                                       @input="updateFilteredTables()"
+                                       min="1"
+                                       max="20"
+                                       step="1"
+                                       placeholder="Masalan: 13"
+                                       class="w-full px-6 py-4 border-2 border-gray-300 rounded-2xl text-lg font-semibold focus:border-amber-500 focus:ring-0 transition-colors"
+                                       required>
+                            </div>
+                            <div class="bg-amber-50 border-2 border-amber-100 rounded-2xl px-5 py-4 text-center">
+                                <p class="text-xs font-bold text-amber-700 uppercase tracking-wider">Tanlangan</p>
+                                <p class="text-3xl font-black text-amber-600" x-text="guests"></p>
+                            </div>
                         </div>
-                        <input type="hidden" name="guests_count" x-model="guests" required>
+                        <p class="mt-3 text-sm text-gray-500">
+                            Istalgan sonni kiriting. Masalan: 13 yoki 19.
+                        </p>
                     </div>
 
                     {{-- Date & Time --}}
@@ -94,26 +105,16 @@
                             <label for="reservation_time" class="block text-lg font-bold text-gray-900 mb-4">
                                 🕐 Band Qilish Vaqti
                             </label>
-                            <select id="reservation_time"
-                                    name="reservation_time"
-                                    x-model="time"
-                                    class="w-full px-6 py-4 border-2 border-gray-300 rounded-2xl text-lg font-semibold focus:border-amber-500 focus:ring-0 transition-colors"
-                                    required>
-                                <option value="">Vaqtni tanlang</option>
-                                <option value="10:00">10:00</option>
-                                <option value="11:00">11:00</option>
-                                <option value="12:00">12:00</option>
-                                <option value="13:00">13:00</option>
-                                <option value="14:00">14:00</option>
-                                <option value="15:00">15:00</option>
-                                <option value="16:00">16:00</option>
-                                <option value="17:00">17:00</option>
-                                <option value="18:00">18:00</option>
-                                <option value="19:00">19:00</option>
-                                <option value="20:00">20:00</option>
-                                <option value="21:00">21:00</option>
-                                <option value="22:00">22:00</option>
-                            </select>
+                            <input type="time"
+                                   id="reservation_time"
+                                   name="reservation_time"
+                                   x-model="time"
+                                   step="60"
+                                   class="w-full px-6 py-4 border-2 border-gray-300 rounded-2xl text-lg font-semibold focus:border-amber-500 focus:ring-0 transition-colors"
+                                   required>
+                            <p class="mt-3 text-sm text-gray-500">
+                                Istalgan vaqtni kiriting, masalan: 13:16 yoki 19:26.
+                            </p>
                         </div>
                     </div>
 

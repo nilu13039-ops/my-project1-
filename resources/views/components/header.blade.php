@@ -70,6 +70,13 @@
                     Menyu
                 </a>
 
+                @auth
+                    <a href="{{ route('order.create') }}"
+                       class="{{ request()->routeIs('order.*') ? 'nav-link-active' : 'nav-link' }}">
+                        Buyurtma
+                    </a>
+                @endauth
+
                 {{-- Joy bron qilish (faqat avtorizatsiya qilingan) --}}
                 @auth
                     <a href="{{ route('reservation.create') }}"
@@ -85,11 +92,11 @@
             <div class="flex items-center gap-3">
 
                 {{-- Savatcha ikona (hamma uchun ko'rinadi) --}}
-                <button
-                    x-on:click="$dispatch('open-modal', 'cart-modal')"
+                <a
+                    href="{{ route('order.create') }}"
                     class="relative p-2.5 rounded-xl text-gray-600 hover:text-amber-600
                            hover:bg-amber-50 transition duration-200"
-                    aria-label="Savatcha"
+                    aria-label="Buyurtma berish"
                 >
                     <svg class="w-6 h-6" fill="none" stroke="currentColor"
                          viewBox="0 0 24 24" stroke-width="2">
@@ -107,7 +114,7 @@
                         style="display: none;"
                         aria-live="polite"
                     ></span>
-                </button>
+                </a>
 
                 {{-- Auth holati --}}
                 @auth
@@ -276,6 +283,18 @@
             </a>
 
             @auth
+                <a href="{{ route('order.create') }}"
+                   x-on:click="mobileOpen = false"
+                   class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold
+                          {{ request()->routeIs('order.*') ? 'bg-amber-50 text-amber-700' : 'text-gray-700 hover:bg-gray-50' }}
+                          transition duration-150">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                    Buyurtma
+                </a>
+
                 <a href="{{ route('reservation.create') }}"
                    x-on:click="mobileOpen = false"
                    class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold

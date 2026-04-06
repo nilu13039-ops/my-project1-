@@ -85,27 +85,33 @@
         </div>
     </section>
 
-    {{-- Reservation CTA --}}
+    {{-- Order CTA --}}
     <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl font-black text-gray-900 mb-6"
                 style="font-family: var(--font-heading);">
-                🎯 Tayyor Buyurtma Berishga?
+                🎯 Buyurtma Berishga Tayyormisiz?
             </h2>
             <p class="text-xl text-gray-600 mb-8">
-                Eng yaxshi tajribani olish uchun oldindan joy band qiling
+                Savatga taom qo'shib bo'ldingizmi? Endi buyurtmani tasdiqlang yoki stol band qiling.
             </p>
-            @auth
-            <a href="{{ route('reservation.create') }}"
-               class="inline-block bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105">
-                📅 Joy Band Qilish
-            </a>
-            @else
-            <a href="{{ route('login') }}"
-               class="inline-block bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105">
-                🔐 Kirish va Band Qilish
-            </a>
-            @endauth
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                @auth
+                <a href="{{ route('order.create') }}"
+                   class="inline-block bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105">
+                    🛒 Buyurtma Berish
+                </a>
+                <a href="{{ route('reservation.create') }}"
+                   class="inline-block bg-white hover:bg-gray-50 text-gray-900 border-2 border-gray-300 px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:shadow-xl hover:border-amber-500">
+                    📅 Joy Band Qilish
+                </a>
+                @else
+                <a href="{{ route('login') }}"
+                   class="inline-block bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:shadow-2xl hover:scale-105">
+                    🔐 Kirish va Buyurtma Berish
+                </a>
+                @endauth
+            </div>
         </div>
     </section>
 

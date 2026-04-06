@@ -211,6 +211,10 @@
 
             <div class="flex flex-col sm:flex-row gap-6 justify-center">
                 @auth
+                <a href="{{ route('order.create') }}"
+                   class="bg-white text-amber-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 hover:shadow-2xl">
+                    🛒 Buyurtma Berish
+                </a>
                 <a href="{{ route('reservation.create') }}"
                    class="bg-white text-amber-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 hover:shadow-2xl">
                     📅 Joy Band Qilish
@@ -218,7 +222,7 @@
                 @else
                 <a href="{{ route('login') }}"
                    class="bg-white text-amber-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-gray-100 transition-all duration-300 hover:shadow-2xl">
-                    🔐 Kirish
+                    🔐 Kirish va Buyurtma Berish
                 </a>
                 @endauth
                 <a href="{{ route('menu') }}"

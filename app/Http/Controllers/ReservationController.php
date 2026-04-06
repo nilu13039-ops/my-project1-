@@ -20,7 +20,7 @@ class ReservationController extends Controller
         $request->validate([
             'table_id' => 'required|exists:tables,id',
             'reservation_date' => 'required|date|after_or_equal:today',
-            'reservation_time' => 'required',
+            'reservation_time' => 'required|date_format:H:i',
             'guests_count' => 'required|integer|min:1|max:20',
             'notes' => 'nullable|string',
         ]);
@@ -35,6 +35,6 @@ class ReservationController extends Controller
             'status' => 'pending',
         ]);
 
-        return redirect()->route('reservation.create')->with('success', 'Joyingiz muvaffaqiyatli band qilindi! Tez orada siz bilan bog\'lanamiz.');
+        return redirect()->route('menu')->with('success', 'Joyingiz muvaffaqiyatli band qilindi! Tez orada siz bilan bog\'lanamiz.');
     }
 }
